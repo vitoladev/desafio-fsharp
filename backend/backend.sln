@@ -12,11 +12,6 @@ EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "backend.Tests", "tests\backend.Tests\backend.Tests.fsproj", "{DB284F96-3FC7-49A0-8667-18732B962F3E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_root", "_root", "{625E3CAC-600B-450D-BF54-E3059450591A}"
-ProjectSection(SolutionItems) = preProject
-	build.bat = build.bat
-	build.sh = build.sh
-	README.md = README.md
-EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
