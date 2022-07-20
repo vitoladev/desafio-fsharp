@@ -17,7 +17,6 @@
     <Compile Include="Modules/Barbecue/BarbecueModel.fs" />
     <Compile Include="Database.fs" />
     <Compile Include="Models.fs" />
-    <Compile Include="Modules/User/UserHandlers.fs" />
     <Compile Include="Modules/Barbecue/BarbecueService.fs" />
     <Compile Include="Modules/Barbecue/BarbecueHandlers.fs" />
     <Compile Include="App.fs" />

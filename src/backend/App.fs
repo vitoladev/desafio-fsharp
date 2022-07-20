@@ -11,9 +11,8 @@ let webApp: HttpFunc -> HttpContext -> HttpFuncResult =
                                "/barbecue"
                                (choose [ GET >=> handleListBarbecues
                                          GET >=> routef "/%s" handleFindBarbecueById
+                                         POST >=> route "/participant"
                                          POST >=> handleCreateBarbecue
-                                         POST
-                                         >=> route "/participant"
                                          >=> handleAddParticipantToBarbecue
                                          DELETE
                                          >=> routef "/participant/%s" handleDeleteParticipantFromBarbecue ])

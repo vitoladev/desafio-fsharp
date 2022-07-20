@@ -13,7 +13,10 @@
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
 				"ms-dotnettools.csharp",
-				"Ionide.Ionide-fsharp"
+				"Ionide.Ionide-fsharp",
+				"mtxr.sqltools",
+				"mtxr.sqltools-driver-pg",
+				"usernamehw.errorlens"
 			]
 		}
 	},

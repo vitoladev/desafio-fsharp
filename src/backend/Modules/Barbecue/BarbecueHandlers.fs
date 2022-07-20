@@ -40,11 +40,6 @@ let handleCreateBarbecue: HttpHandler =
 
                 return! Successful.CREATED (json response) next ctx
             | err -> return! (setStatusCode 422 >=> json err) next ctx
-
-        // match validationResult with
-        // | _ ->
-
-        // | ValidationError err -> return! (setStatusCode 422 >=> json (Error err)) next ctx
         }
 
 
@@ -61,7 +56,7 @@ let handleAddParticipantToBarbecue: HttpHandler =
                     { id = participantId
                       message = "PARTICIPANT_ADDED_SUCCESSFULLY" }
 
-                return! Successful.CREATED (json response) next ctx
+                return! Successful.CREATED response next ctx
             | err -> return! (setStatusCode 422 >=> json err) next ctx
 
         }
