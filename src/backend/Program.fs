@@ -6,6 +6,7 @@ open Microsoft.Extensions.Hosting
 open Microsoft.Extensions.Logging
 open Giraffe
 open backend.App
+open Thoth.Json.Giraffe
 
 let errorHandler (ex : Exception) (logger : ILogger) =
     logger.LogError(ex, "An unhandled exception has occurred while executing the request.")

@@ -13,7 +13,7 @@ open Microsoft.Extensions.DependencyInjection
 // ---------------------------------
 // Helper functions (extend as you need)
 // ---------------------------------
-
+let runTestApi () = (new WebApplicationFactory<Program>()).Server
 let createHost() =
     WebHostBuilder()
         .UseContentRoot(Directory.GetCurrentDirectory())
