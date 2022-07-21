@@ -5,20 +5,18 @@
     <EnableDefaultContentItems>false</EnableDefaultContentItems>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Dapper.FSharp" Version="3.3.0" />
     <PackageReference Include="Giraffe" Version="6.0.0" />
     <PackageReference Include="Npgsql" Version="6.0.5" />
     <PackageReference Include="Npgsql.FSharp" Version="5.2.0" />
-    <PackageReference Include="Thoth.Json.Giraffe" Version="5.0.0" />
     <PackageReference Include="Thoth.Json.Net" Version="8.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers.fs" />
-    <Compile Include="Modules/Barbecue/BarbecueModel.fs" />
-    <Compile Include="Database.fs" />
-    <Compile Include="Models.fs" />
+    <Compile Include="Modules/Barbecue/BarbecueValidator.fs" />
+    <Compile Include="Types.fs" />
     <Compile Include="Modules/Barbecue/BarbecueService.fs" />
     <Compile Include="Modules/Barbecue/BarbecueHandlers.fs" />
+    <Compile Include="Modules/Barbecue/BarbecueRoutes.fs" />
     <Compile Include="App.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>

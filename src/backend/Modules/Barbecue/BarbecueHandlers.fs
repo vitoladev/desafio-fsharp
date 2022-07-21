@@ -4,17 +4,14 @@ open System
 open backend.Barbecue.Service
 open Microsoft.AspNetCore.Http
 open Giraffe
-open backend.Barbecue.Model
-open backend.Models
+open backend.Barbecue.Validator
 open backend.Helpers
 
 let handleListBarbecues: HttpHandler =
     fun (next: HttpFunc) (ctx: HttpContext) ->
-        task {
-            let barbecues = listBarbecues ()
+        let barbecues = listBarbecues () |> waitTask
 
-            return! Successful.OK barbecues next ctx
-        }
+        Successful.OK barbecues next ctx
 
 let handleFindBarbecueById (barbecueIdParam: string) : HttpHandler =
     fun (next: HttpFunc) (ctx: HttpContext) ->
@@ -32,13 +29,13 @@ let handleCreateBarbecue: HttpHandler =
 
             match validationResult with
             | Ok payload ->
-                let barbecueId = createBarbecue payload
+                let! result = createBarbecue payload
 
-                let response: Response =
-                    { id = barbecueId
-                      message = "BARBECUE_CREATED_SUCCESSFULLY" }
+                match result with
+                | Ok barbecue -> return! Successful.CREATED barbecue next ctx
+                | Error err -> return! (setStatusCode 400 >=> json err) next ctx
 
-                return! Successful.CREATED (json response) next ctx
+
             | err -> return! (setStatusCode 422 >=> json err) next ctx
         }
 
@@ -50,23 +47,21 @@ let handleAddParticipantToBarbecue: HttpHandler =
 
             match validationResult with
             | Ok payload ->
-                let participantId = addParticipantToBarbecue payload
+                let! result = addParticipantToBarbecue payload
 
-                let response: Response =
-                    { id = participantId
-                      message = "PARTICIPANT_ADDED_SUCCESSFULLY" }
-
-                return! Successful.CREATED response next ctx
+                match result with
+                | Ok participant -> return! Successful.CREATED participant next ctx
+                | Error err -> return! (setStatusCode 400 >=> json err) next ctx
             | err -> return! (setStatusCode 422 >=> json err) next ctx
-
         }
 
-let handleDeleteParticipantFromBarbecue (barbecueIdParam: string) : HttpHandler =
+let handleDeleteParticipantFromBarbecue (participantIdParam: string) : HttpHandler =
     fun (next: HttpFunc) (ctx: HttpContext) ->
         task {
-            let participantId = Guid.Parse barbecueIdParam
+            let participantId = Guid.Parse participantIdParam
 
             removeParticipantFromBarbecue participantId
+            |> waitTask
             |> ignore
 
             return! Successful.NO_CONTENT next ctx
