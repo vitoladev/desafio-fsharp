@@ -8,6 +8,6 @@ let barbecueRoutes() = subRoute
                                (choose [ 
                                         GET >=> routef "/%s" handleFindBarbecueById
                                         GET >=> handleListBarbecues
-                                        POST >=> route "/participant" >=> handleAddParticipantToBarbecue
+                                        PUT >=> route "/participant" >=> handleAddParticipantToBarbecue
                                         POST >=> handleCreateBarbecue
                                         DELETE >=> routef "/participant/%s" handleDeleteParticipantFromBarbecue ])
