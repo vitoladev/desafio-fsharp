@@ -1,0 +1,372 @@
+{
+	"info": {
+		"_postman_id": "fa160e25-166d-4dbd-bcc9-fb17e25f06e2",
+		"name": "DESAFIO_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List all barbecues",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:5000/api/barbecue",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"barbecue"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List all barbecues",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:5000/api/barbecue",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"barbecue"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "290"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Jul 2022 02:35:02 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"757ce2c7-8634-445a-b4a7-1e08c5e379eb\",\n        \"name\": \"Bolo\",\n        \"description\": \"teste\",\n        \"cost\": 0,\n        \"date\": \"2009-06-15T13:45:30\",\n        \"totalParticipants\": 0\n    },\n    {\n        \"id\": \"7b203114-84fb-4931-87ff-5b5e806e2716\",\n        \"name\": \"Churras\",\n        \"description\": \"teste\",\n        \"cost\": 130,\n        \"date\": \"2009-06-15T13:45:30\",\n        \"totalParticipants\": 6\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get barbecue details /ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/barbecue/bc8dc84f-2b0a-43ed-9006-3ae19c0a76a8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"barbecue",
+						"bc8dc84f-2b0a-43ed-9006-3ae19c0a76a8"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get barbecue details /ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/barbecue/7b203114-84fb-4931-87ff-5b5e806e2716",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"barbecue",
+								"7b203114-84fb-4931-87ff-5b5e806e2716"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "613"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Jul 2022 02:34:25 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"7b203114-84fb-4931-87ff-5b5e806e2716\",\n    \"name\": \"Churras\",\n    \"description\": \"teste\",\n    \"cost\": 115,\n    \"date\": \"2009-06-15T13:45:30\",\n    \"participants\": [\n        {\n            \"id\": \"8399740e-4940-4491-8f73-357d3845ec0e\",\n            \"name\": \"Victor\",\n            \"contribution\": 15\n        },\n        {\n            \"id\": \"5f884f8a-13fc-446f-b649-b3d3e468f6ca\",\n            \"name\": \"Luis\",\n            \"contribution\": 15\n        },\n        {\n            \"id\": \"fa8b3fe9-fa75-4d1e-bddf-3155a55d6652\",\n            \"name\": \"Bob\",\n            \"contribution\": 15\n        },\n        {\n            \"id\": \"3b2a8b0c-22aa-45ad-9bed-785cc029de04\",\n            \"name\": \"Bob\",\n            \"contribution\": 15\n        },\n        {\n            \"id\": \"53175af6-31fe-4473-b6da-06ef62cef8fb\",\n            \"name\": \"Marker\",\n            \"contribution\": 55\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Create barbecue",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Churras 123\",\n    \"description\": \"teste\",\n    \"date\": \"2009-06-15T13:45:30\",\n    \"participants\": [{\n        \"name\": \"Victor\",\n        \"contribution\": 50\n    }, {\n        \"name\": \"Lucas\",\n        \"contribution\": 90\n    }, {\n        \"name\": \"Bob\",\n        \"contribution\": 30\n    }]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:5000/api/barbecue",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"barbecue"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create barbecue",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Churras 123\",\n    \"description\": \"teste\",\n    \"date\": \"2009-06-15T13:45:30\",\n    \"participants\": [{\n        \"name\": \"Victor\",\n        \"contribution\": 10\n    }, {\n        \"name\": \"Lucas\",\n        \"contribution\": 90\n    }, {\n        \"name\": \"Bob\",\n        \"contribution\": 3000\n    }]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:5000/api/barbecue",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"barbecue"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "87"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Jul 2022 05:36:25 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"bc8dc84f-2b0a-43ed-9006-3ae19c0a76a8\",\n    \"message\": \"BARBECUE_CREATED_SUCCESSFULLY\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add participant",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Bob\",\n    \"contribution\": 15,\n    \"barbecue_id\": \"7b203114-84fb-4931-87ff-5b5e806e2716\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/barbecue/participant",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"barbecue",
+						"participant"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add participant",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Bob\",\n    \"contribution\": 15,\n    \"barbecue_id\": \"7b203114-84fb-4931-87ff-5b5e806e2716\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/barbecue/participant",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"barbecue",
+								"participant"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "88"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 20 Jul 2022 15:47:18 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"3b2a8b0c-22aa-45ad-9bed-785cc029de04\",\n    \"message\": \"PARTICIPANT_ADDED_SUCCESSFULLY\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Remove participant",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/barbecue/participant/7580568e-edbe-49f7-bf9a-25f94241b6b7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"barbecue",
+						"participant",
+						"7580568e-edbe-49f7-bf9a-25f94241b6b7"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Remove participant",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/barbecue/participant/7580568e-edbe-49f7-bf9a-25f94241b6b7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"barbecue",
+								"participant",
+								"7580568e-edbe-49f7-bf9a-25f94241b6b7"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 21 Jul 2022 05:48:10 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}
