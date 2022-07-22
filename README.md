@@ -24,7 +24,8 @@ App.fs -> Registra todas as rotas da aplicação
 Program.fs -> Configuração do giraffe
 \
 .devcontainer -> configurações do ambiente dockerizado
-.github/workflows -> configuraç
+\
+.github/workflows -> configurações de CI do github actions
 
 ## Documentação
 A documentação de cada endpoint está na collection do postman no path */docs/Desafio.postman_collection.json*, com todos os endpoints e payloads necessários para testar a API.
