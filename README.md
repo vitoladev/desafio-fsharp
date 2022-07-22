@@ -8,13 +8,23 @@ Na camada de http foi utilizado o Thoth.json para validar jsons de entidades, re
 ## Estrutura
 Modules/[Module]/
     -> Module
+    \
         -> ModuleHandlers.fs => realiza a comunicação HTTP
+        \
         -> ModuleService.fs => realiza a comunicação com o banco de dados
+        \
         -> ModuleValidator.fs => valida os payloads no formato de json vindo dos handlers
+        \
         -> ModuleRoutes.fs => registra as rotas do módulo
+        \
+###  
+      
 App.fs -> Registra todas as rotas da aplicação
+\
 Program.fs -> Configuração do giraffe
+\
 .devcontainer -> configurações do ambiente dockerizado
+.github/workflows -> configuraç
 
 ## Documentação
 A documentação de cada endpoint está na collection do postman no path */docs/Desafio.postman_collection.json*, com todos os endpoints e payloads necessários para testar a API.
