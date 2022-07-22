@@ -11,5 +11,6 @@
       "username": "postgres",
       "password": "postgres"
     }
-  ]
+  ],
+  "FSharp.inlayHints.disableLongTooltip": true
 }
